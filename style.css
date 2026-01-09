@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow: hidden;
+}
+
+/* Page */
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page.active {
+  display: flex;
+}
+
+/* Stars Background */
+.stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url("https://i.imgur.com/7b1K5Qp.png");
+  animation: moveStars 60s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes moveStars {
+  from { transform: translate(0,0); }
+  to { transform: translate(-500px, -500px); }
+}
+
+/* Lyrics Box */
+.lyrics-box {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+  text-align: center;
+}
+
+#lyricsText {
+  font-size: 18px;
+  line-height: 1.6;
+  white-space: pre-line;
+  min-height: 300px;
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+button:enabled {
+  opacity: 1;
+}
+
+button:hover:enabled {
+  transform: scale(1.05);
+}
+.page-title {
+  position: absolute;
+  top: 20px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 100px 30px;
+  width: 100%;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider img {
+  height: 70vh;
+  border-radius: 20px;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.slider img:active {
+  transform: scale(1.05);
+}
+
+/* Zoom overlay */
+.zoom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.zoom img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+}
+.video-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 100px 30px;
+  width: 100%;
+}
+
+.video-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.video-slide {
+  scroll-snap-align: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.video-slide video {
+  height: 65vh;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.video-slide:hover {
+  transform: scale(1.03);
+}
+.final-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, #1a002a, #000);
+  animation: pulseBg 8s ease-in-out infinite;
+}
+
+@keyframes pulseBg {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+.final-content {
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+  text-align: center;
+  animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.final-content h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+#finalText {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  white-space: pre-line;
+}
+
+.blessing {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.signature {
+  position: fixed;
+  bottom: 20px;
+  right: 25px;
+  font-size: 14px;
+  opacity: 0.7;
+  font-style: italic;
+}
